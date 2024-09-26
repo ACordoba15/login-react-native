@@ -16,9 +16,23 @@ const Stack = createNativeStackNavigator<RootStackParamsList>();
 export const MainStack = () => {
     return (
         <Stack.Navigator initialRouteName='LoginScreen'>
-            <Stack.Screen name='LoginScreen' component={LoginScreen} />
-            <Stack.Screen name='RegisterScreen' component={RegisterScreen} />
-            <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen} />
+            <Stack.Screen name='LoginScreen' 
+                component={LoginScreen} 
+                options={{ headerShown: false }}/>
+            <Stack.Screen name='RegisterScreen' 
+                component={RegisterScreen} 
+                options={{
+                    headerTitle: '', // Oculta el título
+                    headerBackTitleVisible: false, // Oculta el texto del botón de retroceso (si existía)
+                    headerTransparent: true, // Hace que el header sea transparente
+                }}/>
+            <Stack.Screen name='ForgotPasswordScreen' 
+                component={ForgotPasswordScreen} 
+                options={{
+                    headerTitle: '', // Oculta el título
+                    headerBackTitleVisible: false, // Oculta el texto del botón de retroceso (si existía)
+                    headerTransparent: true, // Hace que el header sea transparente
+                }}/>
         </Stack.Navigator>
     )
 }

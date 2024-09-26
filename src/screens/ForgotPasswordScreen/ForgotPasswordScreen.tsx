@@ -5,14 +5,14 @@ import { styles } from "./ForgotPasswordScreen.styles";
 
 type ForgotPasswordProps = NativeStackScreenProps<RootStackParamsList, 'ForgotPasswordScreen'>;
 
-export const ForgotPasswordScreen = ({navigation, route}: ForgotPasswordProps) => {
-    const {username} = route.params
+export const ForgotPasswordScreen = ({route}: ForgotPasswordProps) => {
+    const { username } = route.params;
     return (
         <SafeAreaView style={styles.safeAreaView}>
             <View style={styles.container}>
-                <Text>ForgotPassword</Text>
+                <Text>Recuperar contraseña</Text>
                 <Text>{username}</Text>
             </View>
-        </SafeAreaView>
+        </SafeAreaView>   
     )
 }
