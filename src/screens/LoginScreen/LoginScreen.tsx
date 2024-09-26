@@ -8,6 +8,7 @@ import { Button } from "../../components/Button/Button";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Input } from "../../components/Input/Input";
 import { useState } from "react";
+import axios from "axios";
 type HomeProps = NativeStackScreenProps<RootStackParamsList, 'LoginScreen'>;
 
 export const LoginScreen = ({navigation} : HomeProps) => {
@@ -21,6 +22,36 @@ export const LoginScreen = ({navigation} : HomeProps) => {
     const handleInputPassword = (text: string): void =>{
         setInputPassword(text)
     }
+
+    const handleLogin = async() => {
+        try {
+            const response = await axios.post('http://localhost:8000/api/user/login', {
+                username: inputUsername,
+                password: inputPassword
+            });
+
+            console.log('Login exitoso', response.data);
+            await handleAction();
+
+        } catch (err) {
+            console.warn('Error al iniciar sesión, por favor revisa tus credenciales');
+        }
+    }
+
+    const handleAction = async() => {
+        try {
+            const response = await axios.post('http://localhost:8000/api/record', {
+                username: inputUsername,
+                action: 'Inicio de sesión'
+            });
+
+            console.log('Se agregó a la bitácora', response.data);
+
+        } catch (err) {
+            console.warn('Error al agregar a la bitácora');
+        }
+    }
+
     return (
         <SafeAreaView style={styles.safeAreaView}>
             <View style={styles.container}>
@@ -31,7 +62,6 @@ export const LoginScreen = ({navigation} : HomeProps) => {
                 <View style={styles.loginContainer}>
                     <Text style={styles.loginText}>Ingresa tus datos para inciar sesión</Text>
                 </View>
-                {/* Form inicio de sesión */}
                 <View>
                     <Input placeholder="Usuario" 
                         text={inputUsername}
@@ -47,7 +77,7 @@ export const LoginScreen = ({navigation} : HomeProps) => {
                 <View style={styles.forgotPasswordContainer}>
                     <LinkButton title="Olvidé mi contraseña" onPress={() => {navigation.navigate('ForgotPasswordScreen', {username: inputUsername})}}/>
                 </View>
-                <Button title="Ingresar" onPress={() => {console.warn(`Ingresó el usuario ${inputUsername} con la contraseña ${inputPassword}`)}}/>
+                <Button title="Ingresar" onPress={() => {handleLogin()}}/>
                 <View style={styles.createAccountContainer}>
                     <Text style={styles.createAccountText}>¿No tenés cuenta aún?</Text>
                     <LinkButton title="Crea tu cuenta" onPress={() => {navigation.navigate('RegisterScreen')}}/>
