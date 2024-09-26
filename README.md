@@ -77,3 +77,27 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+# Creación del proyecto
+`npx react-native init Navigation`
+
+# Solución de problemas
+> Si en dado caso al instalar dependencias da error por falta de permisos hacer lo siguiente
+
+`ls -la /ruta/al/directorio/proyecto`
+`sudo chown -R $(whoami) /ruta/al/directorio/proyecto`
+
+# Instalar dependencias
+`npm install @react-navigation/native`
+`npm install react-native-screens react-native-safe-area-context`
+`npx pod-install ios`
+
+
+`cd ios` Hacer un cd a la carpeta ios
+
+### Ejecutar lo siguiente
+`bundle install`
+`bundle exec pod install`
+
+`cd ..` Volvemos a la ruta de nuestra aplicación
