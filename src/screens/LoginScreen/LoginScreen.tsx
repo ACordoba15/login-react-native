@@ -9,6 +9,7 @@ import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Input } from "../../components/Input/Input";
 import { useState } from "react";
 import axios from "axios";
+import { handleAction } from "../../helpers/handleActions";
 type HomeProps = NativeStackScreenProps<RootStackParamsList, 'LoginScreen'>;
 
 export const LoginScreen = ({navigation} : HomeProps) => {
@@ -31,24 +32,10 @@ export const LoginScreen = ({navigation} : HomeProps) => {
             });
 
             console.log('Login exitoso', response.data);
-            await handleAction();
+            await handleAction(inputUsername, 'Inicio de sesión');
 
         } catch (err) {
             console.warn('Error al iniciar sesión, por favor revisa tus credenciales');
-        }
-    }
-
-    const handleAction = async() => {
-        try {
-            const response = await axios.post('http://localhost:8000/api/record', {
-                username: inputUsername,
-                action: 'Inicio de sesión'
-            });
-
-            console.log('Se agregó a la bitácora', response.data);
-
-        } catch (err) {
-            console.warn('Error al agregar a la bitácora');
         }
     }
 
@@ -57,10 +44,10 @@ export const LoginScreen = ({navigation} : HomeProps) => {
             <View style={styles.container}>
                 <Logo/>
                 <View style={styles.welcomeContainer}>
-                    <Text style={styles.welcomeText}>Bienvenido</Text>
+                    <Text style={styles.titleText}>Bienvenido</Text>
                 </View>
-                <View style={styles.loginContainer}>
-                    <Text style={styles.loginText}>Ingresa tus datos para inciar sesión</Text>
+                <View style={styles.welcomeContainer}>
+                    <Text style={styles.normalText}>Ingresa tus datos para inciar sesión</Text>
                 </View>
                 <View>
                     <Input placeholder="Usuario" 

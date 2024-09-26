@@ -16,17 +16,11 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
     },
-    welcomeText: {
+    titleText: {
         fontSize: 30,
         fontWeight: 600
     },
-    loginContainer: {
-        width: 323,
-        marginLeft: 20,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-    },
-    loginText: {
+    normalText: {
         fontSize: 14,
         fontWeight: 400
     },

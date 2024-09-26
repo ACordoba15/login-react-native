@@ -10,4 +10,18 @@ export const styles = StyleSheet.create({
     safeAreaView: {
         flex: 1
     },
+    registerContainer: {
+        width: 323,
+        marginLeft: 20,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
+    titleText: {
+        fontSize: 30,
+        fontWeight: 600
+    },
+    normalText: {
+        fontSize: 14,
+        fontWeight: 400
+    },
 })
