@@ -25,7 +25,8 @@ export const MainStack = () => {
                     headerTitle: '', // Oculta el título
                     headerBackTitleVisible: true, // Oculta el texto del botón de retroceso (si existía)
                     headerTransparent: true, // Hace que el header sea transparente
-                    headerBackTitle: 'Volver'
+                    headerBackTitle: 'Volver', // Texto del botón atrás
+                    headerTintColor: '#F38A19' // Cambia el color del texto y de la flecha
                 }}/>
             <Stack.Screen name='ForgotPasswordScreen' 
                 component={ForgotPasswordScreen} 
@@ -33,7 +34,8 @@ export const MainStack = () => {
                     headerTitle: '', // Oculta el título
                     headerBackTitleVisible: true, // Oculta el texto del botón de retroceso (si existía)
                     headerTransparent: true, // Hace que el header sea transparente
-                    headerBackTitle: 'Volver' // Texto del botón atrás
+                    headerBackTitle: 'Volver', // Texto del botón atrás
+                    headerTintColor: '#F38A19' // Cambia el color del texto y de la flecha
                 }}/>
         </Stack.Navigator>
     )
