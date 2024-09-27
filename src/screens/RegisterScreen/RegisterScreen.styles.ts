@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     safeAreaView: {
         flex: 1,
     },
-    registerContainer: {
+    titleContainer: {
         width: 323,
         marginLeft: 20,
         flexDirection: 'row',

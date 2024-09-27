@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Alert, SafeAreaView, Text, View } from "react-native"
+import { Alert, Text, View } from "react-native"
 import { RootStackParamsList } from "../../navigation/main";
 import { styles } from "./RegisterScreen.styles";
 import { Logo } from "../../components/Logo/Logo";
@@ -65,10 +65,10 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
                 {
                     <View style={styles.container}>
                         <Logo/>
-                        <View style={styles.registerContainer}>
+                        <View style={styles.titleContainer}>
                             <Text style={styles.titleText}>Registrate</Text>
                         </View>
-                        <View style={styles.registerContainer}>
+                        <View style={styles.titleContainer}>
                             <Text style={styles.normalText}>Ingresa tus datos para registrarte</Text>
                         </View>
                         <View>

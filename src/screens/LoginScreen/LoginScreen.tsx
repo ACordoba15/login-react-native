@@ -1,4 +1,4 @@
-import { Alert, SafeAreaView, Text, TouchableOpacity, View } from "react-native"
+import { Alert, Text, View } from "react-native"
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types";
 import { RootStackParamsList } from "../../navigation/main";
 
@@ -64,10 +64,10 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
                 {
                     <View style={styles.container}>
                         <Logo/>
-                        <View style={styles.welcomeContainer}>
+                        <View style={styles.titleContainer}>
                             <Text style={styles.titleText}>Bienvenido</Text>
                         </View>
-                        <View style={styles.welcomeContainer}>
+                        <View style={styles.titleContainer}>
                             <Text style={styles.normalText}>Ingresa tus datos para inciar sesión</Text>
                         </View>
                         <View>

@@ -28,7 +28,7 @@ export const Input = ({placeholder, text, onPress, icon, iconSecondary, isPasswo
                 value={text} 
                 onChangeText={onPress}
                 secureTextEntry={passwordInput}>
-                </TextInput>
+            </TextInput>
             {isPasswordInput ? (
                 <TouchableOpacity onPress={togglePasswordVisibility} 
                     style={styles.iconContainer}>
