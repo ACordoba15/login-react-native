@@ -51,9 +51,10 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
             await handleAction(inputUsername, 'Registro');
 
         } catch (err) {
+            console.log(err)
             Alert.alert(
                 "!Error!",
-                "Tu cuenta no se ha podido creado correctamente."
+                "Tu cuenta no se ha podido crear correctamente. Nombre de usuario o contraseña inválida."
             );
         }
     }
