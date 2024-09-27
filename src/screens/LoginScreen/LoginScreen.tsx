@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native"
+import { Alert, SafeAreaView, Text, TouchableOpacity, View } from "react-native"
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types";
 import { RootStackParamsList } from "../../navigation/main";
 
@@ -7,21 +7,32 @@ import { Logo } from "../../components/Logo/Logo";
 import { Button } from "../../components/Button/Button";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Input } from "../../components/Input/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { handleAction } from "../../helpers/handleActions";
 type HomeProps = NativeStackScreenProps<RootStackParamsList, 'LoginScreen'>;
 
-export const LoginScreen = ({navigation} : HomeProps) => {
-
-    const [inputUsername, setInputUsername] = useState("");
-    const [inputPassword, setInputPassword] = useState("");
+export const LoginScreen = ({navigation, route} : HomeProps) => {
+    const { username, password } = route.params || {};
+    
+    const [inputUsername, setInputUsername] = useState<string>("");
+    const [inputPassword, setInputPassword] = useState<string>("");
+    
+    useEffect(() => {
+        if (username) {
+            setInputUsername(username);
+        }
+        if (password) {
+            setInputPassword(password);
+        }
+    }, [username, password]);
 
     const handleInputText = (text: string): void =>{
-        setInputUsername(text)
+        setInputUsername(text);
     }
+    
     const handleInputPassword = (text: string): void =>{
-        setInputPassword(text)
+        setInputPassword(text);
     }
 
     const handleLogin = async() => {
@@ -31,11 +42,18 @@ export const LoginScreen = ({navigation} : HomeProps) => {
                 password: inputPassword
             });
 
-            console.log('Login exitoso', response.data);
+            console.log('Has iniciado sesión exitosamente', response.data);
+            Alert.alert(
+                "Inicio de sesión",
+                "Has iniciado sesión exitosamente"
+            );
             await handleAction(inputUsername, 'Inicio de sesión');
 
         } catch (err) {
-            console.warn('Error al iniciar sesión, por favor revisa tus credenciales');
+            Alert.alert(
+                "Error",
+                "El usuario o la contraseña son incorrectos"
+            );
         }
     }
 
@@ -67,7 +85,7 @@ export const LoginScreen = ({navigation} : HomeProps) => {
                 <Button title="Ingresar" onPress={() => {handleLogin()}}/>
                 <View style={styles.createAccountContainer}>
                     <Text style={styles.createAccountText}>¿No tenés cuenta aún?</Text>
-                    <LinkButton title="Crea tu cuenta" onPress={() => {navigation.navigate('RegisterScreen')}}/>
+                    <LinkButton title="Crea tu cuenta" onPress={() => {navigation.navigate('RegisterScreen',{username: inputUsername, password: inputPassword})}}/>
                 </View>
             </View>
         </SafeAreaView>

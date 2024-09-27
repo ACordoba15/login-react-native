@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { SafeAreaView, Text, View } from "react-native"
+import { Alert, SafeAreaView, Text, View } from "react-native"
 import { RootStackParamsList } from "../../navigation/main";
 import { styles } from "./RegisterScreen.styles";
 import { Logo } from "../../components/Logo/Logo";
@@ -11,9 +11,10 @@ import { Button } from "../../components/Button/Button";
 
 type RegisterProps = NativeStackScreenProps<RootStackParamsList, 'RegisterScreen'>;
 
-export const RegisterScreen = ({navigation} : RegisterProps) => {
-    const [inputUsername, setInputUsername] = useState("");
-    const [inputPassword, setInputPassword] = useState("");
+export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
+    const {username, password} = route.params;
+    const [inputUsername, setInputUsername] = useState<string>(username);
+    const [inputPassword, setInputPassword] = useState<string>(password);
 
     const handleInputText = (text: string): void =>{
         setInputUsername(text)
@@ -24,16 +25,35 @@ export const RegisterScreen = ({navigation} : RegisterProps) => {
 
     const handleRegister = async() => {
         try {
+            if(inputUsername === '' || inputPassword === ''){
+                return Alert.alert(
+                    "Error!",
+                    "Nombre de usuario o contraseña inválida."
+                );
+            }
             const response = await axios.post('http://localhost:8000/api/user/', {
                 username: inputUsername,
                 password: inputPassword
             });
 
             console.log('Registro exitoso', response.data);
+            Alert.alert(
+                "Felicidades!",
+                "Tu cuenta se ha creado correctamente.",
+                [
+                    {
+                        text: 'Aceptar',
+                        onPress: () => navigation.navigate('LoginScreen', {username: inputUsername, password: inputPassword}),
+                    }
+                ]
+            );
             await handleAction(inputUsername, 'Registro');
 
         } catch (err) {
-            console.warn('Error al iniciar sesión, por favor revisa tus credenciales');
+            Alert.alert(
+                "Error!",
+                "Tu cuenta no se ha podido creado correctamente."
+            );
         }
     }
     

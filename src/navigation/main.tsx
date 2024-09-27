@@ -6,8 +6,8 @@ import { RegisterScreen } from '../screens/RegisterScreen/RegisterScreen';
 
 
 export type RootStackParamsList = {
-    LoginScreen: undefined;
-    RegisterScreen: undefined;
+    LoginScreen: {username: string, password: string};
+    RegisterScreen: {username: string, password: string};
     ForgotPasswordScreen: {username: string};
 }
 
@@ -23,15 +23,17 @@ export const MainStack = () => {
                 component={RegisterScreen} 
                 options={{
                     headerTitle: '', // Oculta el título
-                    headerBackTitleVisible: false, // Oculta el texto del botón de retroceso (si existía)
+                    headerBackTitleVisible: true, // Oculta el texto del botón de retroceso (si existía)
                     headerTransparent: true, // Hace que el header sea transparente
+                    headerBackTitle: 'Volver'
                 }}/>
             <Stack.Screen name='ForgotPasswordScreen' 
                 component={ForgotPasswordScreen} 
                 options={{
                     headerTitle: '', // Oculta el título
-                    headerBackTitleVisible: false, // Oculta el texto del botón de retroceso (si existía)
+                    headerBackTitleVisible: true, // Oculta el texto del botón de retroceso (si existía)
                     headerTransparent: true, // Hace que el header sea transparente
+                    headerBackTitle: 'Volver' // Texto del botón atrás
                 }}/>
         </Stack.Navigator>
     )
