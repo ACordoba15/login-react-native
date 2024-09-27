@@ -28,7 +28,7 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
         try {
             if(inputPassword === ''){
                 return Alert.alert(
-                    "Error!",
+                    "¡Error!",
                     "Contraseña inválida."
                 );
             }
@@ -39,7 +39,7 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
 
             console.log('Registro exitoso', response.data);
             Alert.alert(
-                "Felicidades!",
+                "¡Felicidades!",
                 "Tu contraseña se ha actualizado correctamente.",
                 [
                     {
@@ -51,9 +51,10 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
             await handleAction(inputUsername, 'Cambio de contraseña');
 
         } catch (err) {
+            console.log(err);
             Alert.alert(
-                "Error!",
-                "No se pudo actualizar tu contraseña."
+                "¡Error!",
+                "No se pudo actualizar tu contraseña. Nombre de usuario o contraseña incorrecta."
             );
         }
     }

@@ -45,14 +45,14 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
 
             console.log('Has iniciado sesión exitosamente', response.data);
             Alert.alert(
-                "Inicio de sesión",
+                "Bienvenido",
                 "Has iniciado sesión exitosamente"
             );
             await handleAction(inputUsername, 'Inicio de sesión');
 
         } catch (err) {
             Alert.alert(
-                "Error",
+                "¡Error!",
                 "El usuario o la contraseña son incorrectos"
             );
         }

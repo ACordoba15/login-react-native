@@ -28,7 +28,7 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
         try {
             if(inputUsername === '' || inputPassword === ''){
                 return Alert.alert(
-                    "Error!",
+                    "!Error!",
                     "Nombre de usuario o contraseña inválida."
                 );
             }
@@ -39,7 +39,7 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
 
             console.log('Registro exitoso', response.data);
             Alert.alert(
-                "Felicidades!",
+                "!Felicidades!",
                 "Tu cuenta se ha creado correctamente.",
                 [
                     {
@@ -52,7 +52,7 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
 
         } catch (err) {
             Alert.alert(
-                "Error!",
+                "!Error!",
                 "Tu cuenta no se ha podido creado correctamente."
             );
         }
