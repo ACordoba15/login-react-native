@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 import { handleAction } from "../../helpers/handleActions";
 import { Button } from "../../components/Button/Button";
+import { ImageBg } from "../../components/ImageBackground/ImageBg";
 
 type RegisterProps = NativeStackScreenProps<RootStackParamsList, 'RegisterScreen'>;
 
@@ -59,29 +60,34 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
     
 
     return (
-        <SafeAreaView style={styles.safeAreaView}>
-            <View style={styles.container}>
-                <Logo/>
-                <View style={styles.registerContainer}>
-                    <Text style={styles.titleText}>Registrate</Text>
-                </View>
-                <View style={styles.registerContainer}>
-                    <Text style={styles.normalText}>Ingresa tus datos para registrarte</Text>
-                </View>
-                <View>
-                    <Input placeholder="Usuario" 
-                        text={inputUsername}
-                        onPress={handleInputText}
-                        icon={require('../../assets/user.png')}/>
-                    <Input placeholder="Contraseña" 
-                        text={inputPassword}
-                        onPress={handleInputPassword}
-                        isPasswordInput={true} 
-                        icon={require('../../assets/eye.png')} 
-                        iconSecondary={require('../../assets/eye-slash.png')}/>
-                </View>
-                <Button title="Crear cuenta" onPress={() => {handleRegister()}}/>
-            </View>
-        </SafeAreaView>
+        <View style={styles.safeAreaView}>
+            <ImageBg>
+                {
+                    <View style={styles.container}>
+                        <Logo/>
+                        <View style={styles.registerContainer}>
+                            <Text style={styles.titleText}>Registrate</Text>
+                        </View>
+                        <View style={styles.registerContainer}>
+                            <Text style={styles.normalText}>Ingresa tus datos para registrarte</Text>
+                        </View>
+                        <View>
+                            <Input placeholder="Usuario" 
+                                text={inputUsername}
+                                onPress={handleInputText}
+                                icon={require('../../assets/user.png')}/>
+                            <Input placeholder="Contraseña" 
+                                text={inputPassword}
+                                onPress={handleInputPassword}
+                                isPasswordInput={true} 
+                                icon={require('../../assets/eye.png')} 
+                                iconSecondary={require('../../assets/eye-slash.png')}/>
+                        </View>
+                        <Button title="Crear cuenta" onPress={() => {handleRegister()}}/>
+                    </View>
+                }
+            </ImageBg>
+            
+        </View>
     )
 }

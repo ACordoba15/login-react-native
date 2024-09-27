@@ -10,6 +10,7 @@ import { Input } from "../../components/Input/Input";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { handleAction } from "../../helpers/handleActions";
+import { ImageBg } from "../../components/ImageBackground/ImageBg";
 type HomeProps = NativeStackScreenProps<RootStackParamsList, 'LoginScreen'>;
 
 export const LoginScreen = ({navigation, route} : HomeProps) => {
@@ -58,36 +59,40 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
     }
 
     return (
-        <SafeAreaView style={styles.safeAreaView}>
-            <View style={styles.container}>
-                <Logo/>
-                <View style={styles.welcomeContainer}>
-                    <Text style={styles.titleText}>Bienvenido</Text>
-                </View>
-                <View style={styles.welcomeContainer}>
-                    <Text style={styles.normalText}>Ingresa tus datos para inciar sesión</Text>
-                </View>
-                <View>
-                    <Input placeholder="Usuario" 
-                        text={inputUsername}
-                        onPress={handleInputText}
-                        icon={require('../../assets/user.png')}/>
-                    <Input placeholder="Contraseña" 
-                        text={inputPassword}
-                        onPress={handleInputPassword}
-                        isPasswordInput={true} 
-                        icon={require('../../assets/eye.png')} 
-                        iconSecondary={require('../../assets/eye-slash.png')}/>
-                </View>
-                <View style={styles.forgotPasswordContainer}>
-                    <LinkButton title="Olvidé mi contraseña" onPress={() => {navigation.navigate('ForgotPasswordScreen', {username: inputUsername})}}/>
-                </View>
-                <Button title="Ingresar" onPress={() => {handleLogin()}}/>
-                <View style={styles.createAccountContainer}>
-                    <Text style={styles.createAccountText}>¿No tenés cuenta aún?</Text>
-                    <LinkButton title="Crea tu cuenta" onPress={() => {navigation.navigate('RegisterScreen',{username: inputUsername, password: inputPassword})}}/>
-                </View>
-            </View>
-        </SafeAreaView>
+        <View style={styles.safeAreaView}>
+            <ImageBg>
+                {
+                    <View style={styles.container}>
+                        <Logo/>
+                        <View style={styles.welcomeContainer}>
+                            <Text style={styles.titleText}>Bienvenido</Text>
+                        </View>
+                        <View style={styles.welcomeContainer}>
+                            <Text style={styles.normalText}>Ingresa tus datos para inciar sesión</Text>
+                        </View>
+                        <View>
+                            <Input placeholder="Usuario" 
+                                text={inputUsername}
+                                onPress={handleInputText}
+                                icon={require('../../assets/user.png')}/>
+                            <Input placeholder="Contraseña" 
+                                text={inputPassword}
+                                onPress={handleInputPassword}
+                                isPasswordInput={true} 
+                                icon={require('../../assets/eye.png')} 
+                                iconSecondary={require('../../assets/eye-slash.png')}/>
+                        </View>
+                        <View style={styles.forgotPasswordContainer}>
+                            <LinkButton title="Olvidé mi contraseña" onPress={() => {navigation.navigate('ForgotPasswordScreen', {username: inputUsername})}}/>
+                        </View>
+                        <Button title="Ingresar" onPress={() => {handleLogin()}}/>
+                        <View style={styles.createAccountContainer}>
+                            <Text style={styles.createAccountText}>¿No tenés cuenta aún?</Text>
+                            <LinkButton title="Crea tu cuenta" onPress={() => {navigation.navigate('RegisterScreen',{username: inputUsername, password: inputPassword})}}/>
+                        </View>
+                    </View>
+                }
+            </ImageBg>
+        </View>
     )
 }
