@@ -68,7 +68,7 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
                             <Text style={styles.titleText}>Cambiá tu contraseña</Text>
                         </View>
                         <View style={styles.TitleContainer}>
-                            <Text style={styles.normalText}>Ingresá tu nueva contraseña</Text>
+                            <Text style={styles.normalText}>Ingresá tu nombre de usuario y tu nueva contraseña</Text>
                         </View>
                         <View>
                             <Input placeholder="Usuario" 
