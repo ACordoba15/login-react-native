@@ -44,14 +44,23 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
                     "El usuario o la contraseña son incorrectos"
                 );
             }
-            const response = await axios.post('http://localhost:8000/api/user/login', {
-                username: inputUsername,
-                password: inputPassword
+            // Login BE local
+            // const response = await axios.post('http://localhost:8000/api/user/login', {
+            //     username: inputUsername,
+            //     password: inputPassword
+            // });
+
+            // Login Monis
+            const response = await axios.post('https://apimonisuat.teledolar.com/api/v1/accounts/log_in', {
+                client: inputUsername,
+                password: inputPassword,
+                device_id: "FE Mobile",
+                timestamp: "1728416213"
             });
 
-            console.log('Has iniciado sesión exitosamente', response.data);
+            console.log('Has iniciado sesión exitosamente', response.data.data.account.contact_card.individual.name);
             Alert.alert(
-                "Bienvenido",
+                `Bienvenid@: ${response.data.data.account.contact_card.individual.name}`,
                 "Has iniciado sesión exitosamente"
             );
             await handleAction(inputUsername, 'Inicio de sesión');
