@@ -32,7 +32,7 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
                     "Nombre de usuario o contraseña inválida."
                 );
             }
-            const response = await axios.post('http://localhost:8000/api/user/', {
+            const response = await axios.post('http://localhost:8000/api/user', {
                 username: inputUsername,
                 password: inputPassword
             });

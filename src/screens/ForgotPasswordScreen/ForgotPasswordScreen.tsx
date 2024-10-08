@@ -32,7 +32,7 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
                     "Contraseña inválida."
                 );
             }
-            const response = await axios.put('http://localhost:8000/api/user/', {
+            const response = await axios.put('http://localhost:8000/api/user', {
                 username: inputUsername,
                 password: inputPassword
             });

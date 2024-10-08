@@ -38,6 +38,12 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
 
     const handleLogin = async() => {
         try {
+            if(inputPassword === '' || inputUsername === ''){
+                return Alert.alert(
+                    "¡Error!",
+                    "El usuario o la contraseña son incorrectos"
+                );
+            }
             const response = await axios.post('http://localhost:8000/api/user/login', {
                 username: inputUsername,
                 password: inputPassword
