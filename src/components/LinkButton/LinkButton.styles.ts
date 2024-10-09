@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         height: 17,
     },
     buttonText: {
-        color: 'white',
+        color: '#1F2937',
         textDecorationLine: 'underline',
         fontSize: 14,
     },
