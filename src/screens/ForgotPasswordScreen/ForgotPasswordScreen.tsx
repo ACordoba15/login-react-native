@@ -61,32 +61,30 @@ export const ForgotPasswordScreen = ({ navigation, route }: ForgotPasswordProps)
 
     return (
         <View style={styles.safeAreaView}>
-            <ImageBg>
-                {
-                    <View style={styles.container}>
-                        <Logo/>
-                        <View style={styles.TitleContainer}>
-                            <Text style={styles.titleText}>Cambiá tu contraseña</Text>
-                        </View>
-                        <View style={styles.TitleContainer}>
-                            <Text style={styles.normalText}>Ingresá tu nombre de usuario y tu nueva contraseña</Text>
-                        </View>
-                        <View>
-                            <Input placeholder="Usuario" 
-                                text={inputUsername}
-                                onPress={handleInputText}
-                                icon={require('../../assets/user.png')}/>
-                            <Input placeholder="Contraseña" 
-                                text={inputPassword}
-                                onPress={handleInputPassword}
-                                isPasswordInput={true} 
-                                icon={require('../../assets/eye.png')} 
-                                iconSecondary={require('../../assets/eye-slash.png')}/>
-                        </View>
-                        <Button title="Actualizar contraseña" onPress={() => {handleChangePassword()}}/>
+            {
+                <View style={styles.container}>
+                    <Logo/>
+                    <View style={styles.TitleContainer}>
+                        <Text style={styles.titleText}>Cambiá tu contraseña</Text>
                     </View>
-                }
-            </ImageBg>
+                    <View style={styles.TitleContainer}>
+                        <Text style={styles.normalText}>Ingresá tu nombre de usuario y tu nueva contraseña</Text>
+                    </View>
+                    <View>
+                        <Input placeholder="Usuario" 
+                            text={inputUsername}
+                            onPress={handleInputText}
+                            icon={require('../../assets/user.png')}/>
+                        <Input placeholder="Contraseña" 
+                            text={inputPassword}
+                            onPress={handleInputPassword}
+                            isPasswordInput={true} 
+                            icon={require('../../assets/eye.png')} 
+                            iconSecondary={require('../../assets/eye-slash.png')}/>
+                    </View>
+                    <Button title="Actualizar contraseña" onPress={() => {handleChangePassword()}}/>
+                </View>
+            }
         </View>   
     )
 }

@@ -62,33 +62,30 @@ export const RegisterScreen = ({ navigation, route }: RegisterProps) => {
 
     return (
         <View style={styles.safeAreaView}>
-            <ImageBg>
-                {
-                    <View style={styles.container}>
-                        <Logo/>
-                        <View style={styles.titleContainer}>
-                            <Text style={styles.titleText}>Registrate</Text>
-                        </View>
-                        <View style={styles.titleContainer}>
-                            <Text style={styles.normalText}>Ingresa tus datos para registrarte</Text>
-                        </View>
-                        <View>
-                            <Input placeholder="Usuario" 
-                                text={inputUsername}
-                                onPress={handleInputText}
-                                icon={require('../../assets/user.png')}/>
-                            <Input placeholder="Contraseña" 
-                                text={inputPassword}
-                                onPress={handleInputPassword}
-                                isPasswordInput={true} 
-                                icon={require('../../assets/eye.png')} 
-                                iconSecondary={require('../../assets/eye-slash.png')}/>
-                        </View>
-                        <Button title="Crear cuenta" onPress={() => {handleRegister()}}/>
+            {
+                <View style={styles.container}>
+                    <Logo/>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.titleText}>Registrate</Text>
                     </View>
-                }
-            </ImageBg>
-            
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.normalText}>Ingresa tus datos para registrarte</Text>
+                    </View>
+                    <View>
+                        <Input placeholder="Usuario" 
+                            text={inputUsername}
+                            onPress={handleInputText}
+                            icon={require('../../assets/user.png')}/>
+                        <Input placeholder="Contraseña" 
+                            text={inputPassword}
+                            onPress={handleInputPassword}
+                            isPasswordInput={true} 
+                            icon={require('../../assets/eye.png')} 
+                            iconSecondary={require('../../assets/eye-slash.png')}/>
+                    </View>
+                    <Button title="Crear cuenta" onPress={() => {handleRegister()}}/>
+                </View>
+            }
         </View>
     )
 }
