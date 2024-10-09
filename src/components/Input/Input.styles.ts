@@ -7,15 +7,15 @@ export const styles = StyleSheet.create({
         width: 323,
     },
     input: {
-        backgroundColor: '#F2F2F2',
+        backgroundColor: '#FFF',
+        borderColor: '#D1D5DB',
         width: 323,
         height: 60,
         borderRadius: 10,
         marginBottom: 10,
         marginTop: 10,
         padding: 20,
-        fontSize: 16,
-        color: '#006E26'
+        fontSize: 16
     },
     iconContainer: {
         position: 'absolute',

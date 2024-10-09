@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#F3F4F6'
     },
     safeAreaView: {
         flex: 1

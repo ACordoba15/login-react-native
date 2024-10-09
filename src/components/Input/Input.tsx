@@ -24,7 +24,6 @@ export const Input = ({placeholder, text, onPress, icon, iconSecondary, isPasswo
         <View style={styles.inputContainer}>
             <TextInput style={styles.input} 
                 placeholder={placeholder} 
-                placeholderTextColor='#006E26'
                 value={text} 
                 onChangeText={onPress}
                 secureTextEntry={passwordInput}>
