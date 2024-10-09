@@ -103,5 +103,5 @@ To learn more about React Native, take a look at the following resources:
 
 `cd ..` Volvemos a la ruta de nuestra aplicación
 
-## BackEnd
+## Backend
 [Backend](https://github.com/ACordoba15/be-user-maintenance-go) en Go que permite hacer login, cambio de cotraseña y registro de usuario
