@@ -102,3 +102,6 @@ To learn more about React Native, take a look at the following resources:
 `bundle exec pod install`
 
 `cd ..` Volvemos a la ruta de nuestra aplicación
+
+## BackEnd
+[Backend](https://github.com/ACordoba15/be-user-maintenance-go) en Go que permite hacer login, cambio de cotraseña y registro de usuario
