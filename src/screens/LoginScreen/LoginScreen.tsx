@@ -45,22 +45,22 @@ export const LoginScreen = ({navigation, route} : HomeProps) => {
                 );
             }
             // Login BE local
-            // const response = await axios.post('http://localhost:8000/api/user/login', {
-            //     username: inputUsername,
-            //     password: inputPassword
-            // });
-
-            // Login Monis
-            const response = await axios.post('https://apimonisuat.teledolar.com/api/v1/accounts/log_in', {
-                client: inputUsername,
-                password: inputPassword,
-                device_id: "FE Mobile",
-                timestamp: "1728416213"
+            const response = await axios.post('http://localhost:8000/api/user/login', {
+                username: inputUsername,
+                password: inputPassword
             });
 
-            console.log('Has iniciado sesión exitosamente', response.data.data.account.contact_card.individual.name);
+            // Login Monis
+            // const response = await axios.post('https://apimonisuat.teledolar.com/api/v1/accounts/log_in', {
+            //     client: inputUsername,
+            //     password: inputPassword,
+            //     device_id: "FE Mobile",
+            //     timestamp: "1728416213"
+            // });
+
+            console.log('Has iniciado sesión exitosamente', response.data.data.account.contact_card.individual.name ?? inputUsername);
             Alert.alert(
-                `Bienvenid@: ${response.data.data.account.contact_card.individual.name}`,
+                `Bienvenid@: ${response.data.data.account.contact_card.individual.name ?? inputUsername}`,
                 "Has iniciado sesión exitosamente"
             );
             await handleAction(inputUsername, 'Inicio de sesión');
